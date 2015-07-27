@@ -19,4 +19,4 @@ for (var i=0; i<pointsUsed-1;i++) {
     console.log("Coordinates of the point number " + i + " are: " + mySomething[i].x + "; " + mySomething[i].y);
 }
 ```
-If you are using a *projected coordinate reference system*, any calculation is already done in the flattenArc function, getting points belonging to the curve in that specific arc.
+If you are using a *projected coordinate reference system*, any calculation is already done in the flattenArc function, getting points belonging to the curve on that specific arc.
