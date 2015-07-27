@@ -2,7 +2,7 @@
 Used to flatten a curve into a polyline
 
 ###Parameters###
-In order to use **FlattenCurve.js**, all what you need to pass as parameters are:
+In order to use **FlattenArc.js**, all what you need to pass as parameters are:
 - Projected coordinates of the first point -_(x,y)_-. Float.
 - Projected coordinates of the second point -_(x,y)_-. Float.
 - Direction of the Arc -_("Clockwise" or "Counterclockwise")_-. Text.
@@ -12,12 +12,11 @@ In order to use **FlattenCurve.js**, all what you need to pass as parameters are
 
 ###Use###
 ```
-var myVar01 = new Flatten(pts[pts.length-1].x, pts[pts.length-1].y, X, Y, $('#clockwise').val(), arcRadians, radius, 0.01);
-var mySomething = myVar01.flattenArc();
-var pointsUsed = mySomething.length;
+var myVar01 = new Flatten(X1, Y2, X2, Y2, "Clockwise", "11.081", "17", 0.01); //Constructor
+var mySomething = myVar01.flattenArc(); //Function for flattening the arc
+var pointsUsed = mySomething.length; //#points used for that arc with your tolerance
 for (var i=0; i<pointsUsed-1;i++) {
-    console.log(mySomething[i].x + "; " + mySomething[i].y);
-    var inPoint = new esri.geometry.Point([mySomething[i].x,mySomething[i].y] , map.spatialReference);
-    addPolygon(inPoint,false,"circleSymbol");
+    console.log("Coordinates of the point number " + i + " are: " + mySomething[i].x + "; " + mySomething[i].y);
 }
 ```
+If you are using a *projected coordinate reference system*, any calculation is already done in the flattenArc function, getting points belonging to the curve in that specific arc.
